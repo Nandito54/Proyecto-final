@@ -1,9 +1,9 @@
-// frontend/js/main.js
-// Versión mejorada pero simple: carga cursos, renderiza grid y añade al carrito (nivel junior)
+// main js :) //
+
 
 const API_BASE = '/api';
 
-// Escapa texto para evitar inyección (muy básico)
+
 function escapeHtml(text) {
   if (!text && text !== 0) return '';
   return String(text).replace(/[&<>"']/g, ch => ({
@@ -11,14 +11,14 @@ function escapeHtml(text) {
   }[ch]));
 }
 
-// Renderiza cursos en el contenedor #courses-list como grid de tarjetas
+
 function renderCoursesGrid(courses) {
   const listDiv = document.getElementById('courses-list');
   if (!listDiv) return;
 
-  // Asegurar que use la clase de estilo para grid
+  
   listDiv.classList.add('courses-grid');
-  listDiv.innerHTML = ''; // limpiar
+  listDiv.innerHTML = ''; 
 
   courses.forEach(course => {
     const node = document.createElement('div');
@@ -52,14 +52,14 @@ function renderFeatured(courses) {
   });
 }
 
-// Cargar cursos desde backend y renderizar en las páginas donde exista el contenedor
+
 async function loadAndRenderCourses() {
   try {
     const res = await fetch(`${API_BASE}/courses`);
     if (!res.ok) throw new Error('Error al obtener cursos');
     const courses = await res.json();
 
-    // render en listado y featured si existen
+    
     renderCoursesGrid(courses);
     renderFeatured(courses);
   } catch (err) {

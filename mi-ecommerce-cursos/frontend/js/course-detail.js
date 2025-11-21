@@ -5,7 +5,7 @@ const API_BASE = '/api';
 const params = new URLSearchParams(window.location.search);
 const courseId = params.get('id');
 
-// helpers
+
 function qs(sel) { return document.querySelector(sel); }
 function qsa(sel) { return Array.from(document.querySelectorAll(sel)); }
 function setText(id, txt) { const el = document.getElementById(id); if(el) el.textContent = txt; }
@@ -102,7 +102,7 @@ function setupButtons() {
       return;
     }
     try {
-      // añadir al carrito
+      // añade el curso  al carrito
       await fetch(`${API_BASE}/cart/add`, {
         method:'POST', headers:{'Content-Type':'application/json'},
         body: JSON.stringify({ userId: parseInt(userId), courseId: parseInt(courseId) })
@@ -122,7 +122,7 @@ function setupButtons() {
   });
 }
 
-// inicializar
+// inicializador 
 document.addEventListener('DOMContentLoaded', () => {
   loadCourse();
   setupAccordions();

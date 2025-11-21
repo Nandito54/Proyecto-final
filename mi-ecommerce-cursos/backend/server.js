@@ -12,7 +12,7 @@ const PORT = process.env.PORT || 3000;
 
 app.use(express.json());
 
-// Rutas API
+// Rutas API 
 app.use('/api/auth', authRoutes);
 app.use('/api/courses', courseRoutes);
 app.use('/api/cart', cartRoutes);
@@ -23,7 +23,7 @@ app.use('/', express.static(path.join(__dirname, '../frontend')));
 // ruta de prueba para ver si arranca el servidor
 app.get('/hello', (req, res) => res.send('Servidor backend funcionando'));
 
-// Iniciar servidor
+// Iniciador del servidor
 app.listen(PORT, () => {
   console.log(`Servidor escuchando en http://localhost:${PORT}`);
 });

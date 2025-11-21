@@ -1,11 +1,11 @@
-// backend/routes/courses.js
+// courses //
 const express = require('express');
 const router = express.Router();
 
 
 const CourseModel = require('../models/course');
 
-// GET /api/courses  -> lista todos los cursos
+// GET lista todos los cursos //
 router.get('/', (req, res) => {
   try {
     const courses = CourseModel.getAllCourses();
@@ -16,7 +16,7 @@ router.get('/', (req, res) => {
   }
 });
 
-// GET /api/courses/:id -> detalle de curso
+// GET detalle de curso //
 router.get('/:id', (req, res) => {
   try {
     const id = req.params.id;
