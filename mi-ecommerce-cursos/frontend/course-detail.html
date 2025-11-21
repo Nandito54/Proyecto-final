@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <title>Detalle del Curso</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Revoluciona <span style="color:var(--pink-strong); font-weight:800;">tu Dieta</span></h1>
+      <button class="menu-btn">☰ Menu</button>
+    </header>
+
+    <main>
+      
+      <h2 class="big-title" id="course-title">Cargando...</h2>
+      <div class="big-title muted" id="course-sub"></div>
+      <div class="big-title pink" id="course-price"></div>
+      <p class="small-note">SIN PERMANENCIA.</p>
+
+      
+      <div class="section-box">
+        <div class="accordion" data-idx="0">
+          <span class="label">+ Duración del plan</span>
+          <span class="chev">+</span>
+        </div>
+        <div class="accordion-content" id="acc-0">
+          <p id="acc-0-content">Duración: ...</p>
+        </div>
+
+        <div class="accordion" data-idx="1">
+          <span class="label">+ ¿Qué incluye el plan?</span>
+          <span class="chev">+</span>
+        </div>
+        <div class="accordion-content" id="acc-1">
+          <p id="acc-1-content">Incluye: ...</p>
+        </div>
+
+        <div class="accordion" data-idx="2">
+          <span class="label">+ ¿Cómo es el proceso de adquirir el plan?</span>
+          <span class="chev">+</span>
+        </div>
+        <div class="accordion-content" id="acc-2">
+          <p id="acc-2-content">Proceso: ...</p>
+        </div>
+      </div>
+
+      
+      <div class="cta-row">
+        <div class="qty-box" id="qty">1</div>
+        <button class="btn-outline-pink" id="btn-start">Comenzar Mi Plan</button>
+        <button class="btn-pink" id="btn-buy">Comprar Ahora</button>
+      </div>
+
+      <div class="spacer"></div>
+      <footer>Proyecto final — E-commerce de cursos</footer>
+    </main>
+  </div>
+
+  <!-- simular cokkies de paginas reales  -->
+  <div class="cookie-bar" id="cookie-bar">
+    <p>Este sitio utiliza cookies para mejorar la experiencia. Si continúas aceptas nuestra política de cookies.</p>
+    <button class="cookie-accept" id="cookie-accept">ACEPTAR</button>
+  </div>
+
+  <!-- Chat simula chat de IA pero no hace nada -->
+  <div class="chat-circle" id="chat-circle" title="Chat">
+    <span>💬</span>
+  </div>
+
+  <script src="js/course-detail.js"></script>
+</body>
+</html>

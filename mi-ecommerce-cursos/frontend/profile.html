@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <title>Perfil</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <header>
+    <h1>Mi Perfil</h1>
+    <nav>
+      <a href="index.html">Home</a> |
+      <a href="courses.html">Cursos</a> |
+      <a href="cart.html">Carrito</a> |
+      <a href="login.html" id="logout-link">Cerrar sesión</a>
+    </nav>
+  </header>
+
+  <main>
+    <p id="email">Cargando...</p>
+    <h2>Cursos comprados</h2>
+    <ul id="purchased-list"></ul>
+  </main>
+
+  <script>
+    const API_BASE = '/api';
+    const userId = localStorage.getItem('userId');
+
+    async function loadProfile() {
+      if (!userId) {
+        alert('Debes iniciar sesión');
+        window.location.href = 'login.html';
+        return;
+      }
+
+      try {
+        const res = await fetch(`${API_BASE}/auth/profile/${userId}`);
+        const data = await res.json();
+        document.getElementById('email').textContent = 'Email: ' + (data.email || '');
+        const ul = document.getElementById('purchased-list');
+        ul.innerHTML = '';
+        if (data.purchasedCourses && data.purchasedCourses.length) {
+  
+          const allCoursesRes = await fetch(`${API_BASE}/courses`);
+          const courses = await allCoursesRes.json();
+          data.purchasedCourses.forEach(id => {
+            const course = courses.find(c => c.id === id) || { title: `Curso ${id}` };
+            const li = document.createElement('li');
+            li.textContent = `${course.title} (ID: ${id})`;
+            ul.appendChild(li);
+          });
+        } else {
+          ul.innerHTML = '<li>No has comprado cursos aún.</li>';
+        }
+      } catch (err) {
+        console.error(err);
+        alert('Error cargando perfil');
+      }
+    }
+
+    document.getElementById('logout-link').addEventListener('click', (e) => {
+      
+      localStorage.removeItem('userId');
+    });
+
+    document.addEventListener('DOMContentLoaded', loadProfile);
+  </script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "title": "Nutrición para principiantes",
+    "description": "Aprende los fundamentos de la nutrición y cómo organizar tus comidas.",
+    "price": 50
+  },
+  {
+    "id": 2,
+    "title": "Entrenamiento de fuerza",
+    "description": "Rutinas de fuerza para todos los niveles, paso a paso.",
+    "price": 75
+  },
+  {
+    "id": 3,
+    "title": "Cardio y salud",
+    "description": "Mejora tu salud cardiovascular con ejercicios simples diarios.",
+    "price": 60
+  },
+  {
+    "id": 4,
+    "title": "Yoga y bienestar",
+    "description": "Rutinas de yoga para relajarte y mantenerte en forma.",
+    "price": 45
+  }
+]
